@@ -1,0 +1,656 @@
+/* -------------------------Reset and base styles------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+i, a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+h1::selection, h2::selection, h3::selection, p::selection, span::selection {
+    background-color: #ecac4d79;
+}
+
+/* ------------------------------Header and Navigation Styles---------------------------- */
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header nav {
+    padding: 0.65rem 2rem;
+}
+
+.nav-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav .bars-icon, nav .search-icon{
+    display: grid;
+    place-items: center;
+}
+
+header nav .fa-bars, nav .fa-search {
+    color: #dd9933;
+    font-size: 1.3rem;
+    font-weight: 700;
+    transition: all 0.15s ease-in-out;
+}
+
+header nav .fa-bars:hover, nav .fa-search:hover {
+    transform: scale(1.2);
+}
+
+header nav .logo {
+    display: grid;
+    place-items: center;
+    transition: all 0.15s ease-in-out;
+}
+
+header nav .logo img {
+    width: 7rem;
+}
+
+header nav .logo:hover {
+    transform: scale(1.1);
+}
+
+.nav-desktop {
+    display: none;
+}
+
+/* Responsive navigation */
+@media (min-width: 1024px) {
+    header nav {
+        padding: 0.65rem 1.5rem;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .nav-mobile {
+        display: none;
+    }
+
+    .nav-desktop {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .nav-desktop .bars-and-logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .nav-desktop .bars-and-logo .bars-icon{
+        padding-right: 1rem;
+        border-right: 1px solid #e0e0e0;
+    }
+
+    .nav-desktop .page-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+        list-style-type: none;
+    }
+
+    .nav-desktop .page-links a {
+        color: #757575;
+        font-weight: 600;
+        border-bottom: 2px solid transparent;
+        transition: all 0.15s ease-in-out;
+    }
+
+    .nav-desktop .page-links a:hover {
+        color: #dd9933;
+        border-bottom-color: #dd9933;
+    }
+
+    .nav-desktop .search-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .nav-desktop .search-box input {
+        width: 7rem;
+        padding: 0.1rem 0.3rem;
+        outline: none;
+    }
+
+    .nav-desktop .search-box .search-icon {
+        padding-left: 1rem;
+        border-left: 1px solid #e0e0e0;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1195px) {
+    .nav-desktop .page-links {
+        gap: 1.25rem;
+    }
+
+    .nav-desktop .page-links a {
+        font-size: 0.8rem;
+    }
+}
+
+
+/* --------------------------------Hero section Styles--------------------------- */
+#hero {
+    background-color: #f8f8f8;
+    padding: 2rem 0;
+    padding-top: 10rem;
+    padding-bottom: 8rem;
+}
+
+#hero .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.breadcrumb {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0.5rem;
+}
+
+.breadcrumb li {
+    display: inline;
+    font-size: 14px;
+}
+
+.breadcrumb li + li:before {
+    content: " > ";
+    color: #666;
+}
+
+.breadcrumb a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.title {
+    font-size: 2.5rem;
+    line-height: 3rem;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    line-height: 1.2;
+    color: #dd9933;
+    margin-bottom: 2rem;
+    max-width: 100%;
+}
+
+.subtitle span {
+    display: block;
+}
+
+.featured-image {
+    margin-bottom: 1rem;
+}
+
+.featured-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.article-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 4rem;
+}
+
+.article-info .author {
+    margin-right: 1rem;
+    font-weight: 600;
+}
+
+.article-info .author .name {
+    color: #dd9933;
+}
+
+.summary-with-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.summary-with-img p {
+    text-align: center;
+}
+
+.summary-with-img img {
+    width: 500px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Animations for title, sub-title and hero-image */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes fadeInZoom {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.animate-title {
+    animation: fadeInUp 1s ease-out;
+}
+
+.animate-subtitle {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typewriter 2s steps(60, end);
+}
+
+.animate-image {
+    animation: fadeInZoom 1s ease-out;
+}
+
+/* Responsive Hero-Section */
+@media (max-width: 1024px) {
+    .title {
+        font-size: 1.85rem;
+        line-height: 1.2;
+        margin-bottom: 0.7rem;
+    }
+        
+    .subtitle {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 680px) {
+    .breadcrumb li {
+        font-size: 12px;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+        
+    .subtitle {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 530px) {
+    .breadcrumb {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .breadcrumb li {
+        font-size: 10px;
+    }
+
+    .article-info {
+        font-size: 0.8rem;
+    }
+
+    .summary-with-img p {
+        line-height: 1.4;
+    }
+
+    .summary-with-img img {
+        width: 350px;
+    }
+}
+
+
+/* --------------------------------Characters section Styles--------------------------- */
+#characters {
+    padding: 5rem 0rem;
+    border-top: 2px solid #666;
+    background-color: #f8f8f8;
+    scroll-margin-top: 70px;
+    text-align: center;
+}
+
+#characters .container {
+    padding: 0rem 1rem;
+}
+
+#characters h2 {
+    margin-bottom: 2.5rem;
+}
+
+#characters .character-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    list-style: none; 
+    padding: 0;
+}
+
+.character-card {
+    width: 400px;
+    border-bottom: 4px solid black;
+    border-radius: 8px;
+    position: relative; /* To position details relative to the card */
+    overflow: hidden; /* Hide details that overflow the card */
+    display: flex;
+    flex-direction: column;
+    gap: 0; /*To remove black space between img and .character-details */
+}
+
+.character-card img {
+    width: 100%;
+}
+
+.character-details {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.character-details h3 {
+    line-height: 2.5;
+}
+  
+.character-card:hover .character-details {
+    transform: translateY(0); /* Show details on hover */
+    opacity: 1; /* Make the details visible */
+}
+
+/* Responsive Character-Section */
+@media (max-width: 768px) {
+    .character-details {
+        transform: translateY(81%);
+    }
+
+    .character-details {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 475px) {
+    .character-card {
+        width: 300px;
+    }
+
+    .character-details {
+        transform: translateY(82%);
+    }
+
+    .character-details h3 {
+        font-size: 1rem;
+        line-height: 1.75;
+    }
+
+    .character-details p {
+        font-size: 0.8rem;
+        line-height: 1.25;
+    }
+}
+
+
+/* --------------------------------CTA-Btn Section Styles--------------------------- */
+#cta {
+    padding: 5rem;
+    display: grid;
+    place-items: center;
+    background-color: #f8f8f8;
+}
+
+@keyframes shake-scale {
+    0% {
+        transform: rotate(0deg) scale(1); /* Initial state */
+        box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.8); /* Add a subtle shadow */
+    }
+    20% {
+        transform: rotate(0deg) scale(1.2); /* Upscale without rotation */
+        box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.8); 
+    }
+    40% {
+        transform: rotate(5deg) scale(1.2); /* Rotate while upscaled */
+        box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.8); 
+    }
+    45% {
+        transform: rotate(-5deg) scale(1.2); /* Rotate in the opposite direction */
+        box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.8); 
+    }
+    50% {
+        transform: rotate(5deg) scale(1.2); /* Rotate again */
+        box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.8); 
+    }
+    55% {
+        transform: rotate(-5deg) scale(1.2);  /* Rotate again in the opposite direction */
+        box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.8); 
+    }
+    60% {
+        transform: rotate(5deg) scale(1.2); /* Rotate again */
+        box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.8); 
+    }
+    65% {
+        transform: rotate(-5deg) scale(1.2); /* Rotate again in the opposite direction */
+        box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.8); 
+    }
+    85% {
+        transform: rotate(0deg) scale(1.2); /* No rotation */
+        box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.8); 
+    }
+    100% {
+        transform: rotate(0deg) scale(1); /* Back to initial state */
+        box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.8); /* Add a subtle shadow */
+    }
+}
+
+.cta-button {
+    background-color: #AA00FF;
+    color: white;
+    font-size: 2rem; 
+    padding: 1rem 2rem; 
+    border: none;
+    border-radius: 8px; /* Add rounded corners */
+    text-decoration: none; /* Remove underline from link */
+    cursor: pointer;
+    animation: shake-scale 2s infinite ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+    animation: none;
+    transform: scale(1.2);
+    background-color: #ce00e0;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.8); /* Add a subtle shadow */
+}
+
+.cta-button:active {
+    background-color: #ce00e0;
+    transform: scale(1.35);
+}
+
+/* Responsive CTA Button */
+@media (max-width: 400px) {
+    .cta-button {
+        font-size: 1.2rem; 
+    }
+}
+
+
+/* --------------------------------Carousel Section Styles--------------------------- */
+#carousel {
+    border-top: 2px solid #666;
+    padding: 5rem 0rem;
+    background-color: #f8f8f8;
+}
+
+#carousel h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+}
+  
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+  
+.carousel-slide {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding: 0 10px;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.carousel-slide a {
+    width: 100%;
+    height: 100%;
+    color: #dd9933;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 80%;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+}
+  
+.carousel-slide h3 {
+    margin-top: 10px;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+}
+
+.carousel-slide:hover img {
+    transform: scale(1.025);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.8);
+}
+
+.carousel-slide:hover h3 {
+    font-size: 1.3rem;
+    font-weight: 900;
+    text-decoration: underline;
+}
+  
+.carousel-button {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-45%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.2rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.carousel-button.prev {
+  left: 10px;
+}
+
+.carousel-button.next {
+  right: 10px;
+}
+
+.carousel-button:hover {
+    transform: scale(1.1) translateY(-45%);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.8); /* Add a subtle shadow */
+    background: rgba(0, 0, 0, 0.8);
+    font-weight: 600;
+}
+
+/* Responsive styles */
+@media (min-width: 768px) {
+  .carousel-slide {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .carousel-slide {
+    flex: 0 0 33.333%;
+    max-width: 33.333%;
+  }
+}
+
+/* --------------------------------Footer Styles--------------------------- */
+footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
