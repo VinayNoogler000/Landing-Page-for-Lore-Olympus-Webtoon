@@ -11,7 +11,7 @@
 
     <!-- A responsive navigation bar  -->
     <header>
-        <nav>
+        <nav role="navigation" aria-label="Main Navigation">
 
             <!-- NavBar for Mobile, Tablets & Laptops -->
             <div class="nav-mobile"> 
@@ -59,7 +59,7 @@
         </nav>
     </header>
 
-    <main>
+    <main role="main">
         <!-- A hero section with a background image and animated text -->
         <section id="hero">
             <div class="container">
@@ -78,7 +78,7 @@
                 </p>
                 
                 <div class="featured-image">
-                    <img src="../assets/lore-olympus-featured.png" alt="Lore Olympus characters">
+                    <img src="../assets/lore-olympus-featured.png" alt="Lore Olympus characters" sizes="(max-width: 600px) 300px, 800px">
                 </div>
 
                 <div class="article-info">
@@ -88,20 +88,20 @@
 
                 <div class="summary-with-img">
                     <p>Rachel Smith’s Lore Olympus webtoon is a modern retelling of the ancient Greek myth of Hades and Persephone, has taken the digital comics world by storm. This article explores the complex world of “Lore Olympus,” providing details on the Lore Olympus characters, major themes, and the impact this beloved series has on readers.</p>
-                    <img src="../assets/hero-section-2nd-img.png.webp" alt="Hades and Persephone are having conversation over a phone call.">
+                    <img src="../assets/hero-section-2nd-img.png.webp" alt="Hades and Persephone are having conversation over a phone call." loading="lazy">
                 </div>
             </div>
         </section>
 
         <!-- A section featuring the main characters, using images and hover effects to display character details dynamically -->
-        <section id="characters">
+        <section id="characters" aria-labelledby="characters-heading">
             <div class="container">
-                <h2>Main Characters in Lore Olympus Webtoon</h2>
+                <h2 id="characters-heading">Main Characters in Lore Olympus Webtoon</h2>
 
                 <ul class="character-list">
                     <li>
                       <div class="character-card">
-                        <img src="../assets/Hades.png.webp" alt="Hades">
+                        <img src="../assets/Hades.png.webp" alt="Hades" loading="lazy">
                         
                         <div class="character-details">
                           <h3>Hades</h3>
@@ -112,7 +112,7 @@
                     
                     <li>
                       <div class="character-card">
-                        <img src="../assets/Persephone.png.webp" alt="Persephone">
+                        <img src="../assets/Persephone.png.webp" alt="Persephone" loading="lazy">
                         
                         <div class="character-details">
                           <h3>Persephone</h3>
@@ -123,7 +123,7 @@
 
                     <li>
                         <div class="character-card">
-                            <img src="../assets/Zeus.png.webp" alt="Zeus">
+                            <img src="../assets/Zeus.png.webp" alt="Zeus" loading="lazy">
                             
                             <div class="character-details">
                               <h3>Zeus</h3>
@@ -134,7 +134,7 @@
 
                     <li>
                         <div class="character-card">
-                            <img src="../assets/Poseidon.png.webp" alt="Poseidon">
+                            <img src="../assets/Poseidon.png.webp" alt="Poseidon" loading="lazy">
                             
                             <div class="character-details">
                               <h3>Poseidon</h3>
@@ -145,7 +145,7 @@
 
                     <li>
                         <div class="character-card">
-                            <img src="../assets/Eros.png.webp" alt="Eros">
+                            <img src="../assets/Eros.png.webp" alt="Eros" loading="lazy">
                             
                             <div class="character-details">
                               <h3>Eros</h3>
@@ -166,87 +166,87 @@
         </section>
 
         <!-- A carousel showcasing different supernatural manhwas. -->
-        <section id="carousel">
+        <section id="carousel" aria-labelledby="carousel-heading">
 
             <div class="container">
-                <h2>Top 10 Best Supernatural Manhwa</h2>
+                <h2 id="carousel-heading">Top 10 Best Supernatural Manhwa</h2>
 
                 <div class="carousel-container">
-                    <button class="carousel-button prev">&lt;</button>
+                    <button class="carousel-button prev" aria-label="Previous slide" role="button">&lt;</button>
 
                     <div class="carousel-track">
                         <div class="carousel-slide">
                             <a href="https://animemangatoon.com/ten-best-supernatural-manhwa/#1_Best_Supernatural_Manhwa_%E2%80%93_Leviathan">
-                                <img src="../assets/SuperNatural_Manhwa_1.jpg" alt="Leviathan">
+                                <img src="../assets/SuperNatural_Manhwa_1.jpg" alt="Leviathan" >
                                 <h3>Leviathan</h3>
                             </a>
                         </div>
 
                         <div class="carousel-slide">
                             <a href="https://animemangatoon.com/ten-best-supernatural-manhwa/#2_Tower_of_God">
-                                <img src="../assets/SuperNatural_Manhwa_2.jpg" alt="Tower of God">
+                                <img src="../assets/SuperNatural_Manhwa_2.jpg" alt="Tower of God" >
                                 <h3>Tower of God</h3>
                             </a>
                         </div>
                         
                         <div class="carousel-slide">
                             <a href="https://animemangatoon.com/ten-best-supernatural-manhwa/#3_Leveling_Up_with_the_Gods">
-                                <img src="../assets/SuperNatural_Manhwa_3.jpg" alt="Leveling Up with the Gods">
+                                <img src="../assets/SuperNatural_Manhwa_3.jpg" alt="Leveling Up with the Gods" >
                                 <h3>Leveling Up with the Gods</h3> 
                             </a>
                         </div>
                         
                         <div class="carousel-slide">
                             <a href="https://animemangatoon.com/ten-best-supernatural-manhwa/#4_Existence">
-                                <img src="../assets/SuperNatural_Manhwa_4.jpg" alt="Existence">
+                                <img src="../assets/SuperNatural_Manhwa_4.jpg" alt="Existence" loading="lazy">
                                 <h3>Existence</h3>
                             </a>    
                         </div>
                         
                         <div class="carousel-slide">
                             <a href="https://animemangatoon.com/ten-best-supernatural-manhwa/#5_The_Breaker">
-                                <img src="../assets/SuperNatural_Manhwa_5.jpg" alt="The Breaker">
+                                <img src="../assets/SuperNatural_Manhwa_5.jpg" alt="The Breaker" loading="lazy">
                                 <h3>The Breaker</h3>
                             </a>
                         </div>
                         
                         <div class="carousel-slide">
                             <a href="https://animemangatoon.com/ten-best-supernatural-manhwa/#6_The_First_Hunter_%E2%80%93_Another_Great_Supernatural_Manhwa">
-                                <img src="../assets/SuperNatural_Manhwa_6.jpg" alt="The First Hunter">
+                                <img src="../assets/SuperNatural_Manhwa_6.jpg" alt="The First Hunter" loading="lazy">
                                 <h3>The First Hunter</h3>
                             </a>
                         </div>
                         
                         <div class="carousel-slide">
                             <a href="https://animemangatoon.com/ten-best-supernatural-manhwa/#7_Supernatural_Manhwa_Noblesse">
-                                <img src="../assets/SuperNatural_Manhwa_7.jpg" alt="Noblesse">
+                                <img src="../assets/SuperNatural_Manhwa_7.jpg" alt="Noblesse" loading="lazy">
                                 <h3>Noblesse</h3>
                             </a>
                         </div>
                         
                         <div class="carousel-slide">
                             <a href="https://animemangatoon.com/ten-best-supernatural-manhwa/#8_Ultimate_Outcast">
-                                <img src="../assets/SuperNatural_Manhwa_8.jpg" alt="Ultimate Outcast">
+                                <img src="../assets/SuperNatural_Manhwa_8.jpg" alt="Ultimate Outcast" loading="lazy">
                                 <h3>Ultimate Outcast</h3>
                             </a>
                         </div>
                         
                         <div class="carousel-slide">
                             <a href="https://animemangatoon.com/ten-best-supernatural-manhwa/#9_Supernatural_Manhwa_Unholy_Blood">
-                                <img src="../assets/SuperNatural_Manhwa_9.jpg" alt="Unholy Blood">
+                                <img src="../assets/SuperNatural_Manhwa_9.jpg" alt="Unholy Blood" loading="lazy">
                                 <h3>Unholy Blood</h3>
                             </a>
                         </div>
                         
                         <div class="carousel-slide">
                             <a href="https://animemangatoon.com/ten-best-supernatural-manhwa/#10_Dice_The_Cube_that_Changes_Everything">
-                                <img src="../assets/SuperNatural_Manhwa_10.jpg" alt="Dice: The Cube that Changes Everything">
+                                <img src="../assets/SuperNatural_Manhwa_10.jpg" alt="Dice: The Cube that Changes Everything" loading="lazy">
                                 <h3>Dice: The Cube that Changes Everything</h3>
                             </a>
                         </div>
                     </div>
 
-                    <button class="carousel-button next">&gt;</button>
+                    <button class="carousel-button next" aria-label="Next slide" role="button">&gt;</button>
                 </div>
               </div>
         </section>
@@ -256,6 +256,6 @@
         <p>&copy; 2024 Lore Olympus. All rights reserved.</p>
     </footer>
 
-    <script src="app.js"></script>
+    <script src="app.js" defer></script>
 </body>
 </html>
