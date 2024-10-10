@@ -24,7 +24,7 @@ A responsive and interactive landing page for the popular webtoon "Lore Olympus,
 
 ## Demo
 
-[Live Demo](https://your-demo-link-here.com)
+[Live Demo](https://landing-page-for-lore-olympson-webtoon-by-vinay-t.b-cdn.net/)
 
 ## Installation
 
