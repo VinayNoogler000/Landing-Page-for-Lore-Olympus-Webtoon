@@ -26,8 +26,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     //👇 Below functions to add functionality in Carousel Component.
     function getSlidesToShow() {
-        if (window.innerWidth >= 1024) return 3;
-        if (window.innerWidth >= 768) return 2;
+        if (viewportWidth >= 1024) return 3;
+        if (viewportWidth >= 768) return 2;
         return 1;
     }
 
