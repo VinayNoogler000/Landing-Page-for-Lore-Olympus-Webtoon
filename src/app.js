@@ -23,17 +23,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         visibleSlides: 1
     }; 
 
-    function updateVisibleSlides() { // Update the number of visible slides based on screen width
-        const viewportWidth = window.innerWidth;
-        if (viewportWidth >= 1024) {
-            carousel.visibleSlides = 3;
-        } else if (viewportWidth >= 768) {
-            carousel.visibleSlides = 2;
-        } else {
-            carousel.visibleSlides = 1;
-        }
-    }
-
     function handleResize() { // Handle window resize
         updateVisibleSlides();
         setSlideWidth();
@@ -82,6 +71,17 @@ document.addEventListener('DOMContentLoaded', (event) => {
         setSlideWidth();
         updateCarouselView();
         addEventListeners();
+    }
+
+    function updateVisibleSlides() { // Update the number of visible slides based on screen width
+        const viewportWidth = window.innerWidth;
+        if (viewportWidth >= 1024) {
+            carousel.visibleSlides = 3;
+        } else if (viewportWidth >= 768) {
+            carousel.visibleSlides = 2;
+        } else {
+            carousel.visibleSlides = 1;
+        }
     }
 
     //👇 Below code to make the subtitle element responsive, while maintaining the animation.
