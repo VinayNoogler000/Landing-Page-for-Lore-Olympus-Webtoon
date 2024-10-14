@@ -3,19 +3,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const subtitleFirstLine = document.querySelector(".subtitle .line1");
     const subtitleSecondLine = document.querySelector(".subtitle .line2");
     const image = document.querySelector(".featured-image");
-    const viewportWidth = window.innerWidth;
-
-    //👇 Below are the variables for Carousel Component
-    const track = document.querySelector('.carousel-track');
-    const slides = Array.from(track.children);
-    const nextButton = document.querySelector('.carousel-button.next');
-    const prevButton = document.querySelector('.carousel-button.prev');
-
-    let currentIndex = 0;
-    let slidesToShow = getSlidesToShow();
-
-    //👇 Below function to add animation to the Hero-Section Elements.
-    const addAnimation = (el, delay, animationName) => {
+    
+    const addAnimation = (el, delay, animationName) => { // function to add animation to the Hero-Section Elements.
         el.style.opacity = 0;
 
         setTimeout(() => {
@@ -24,24 +13,83 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }, delay);
     }
 
-    //👇 Below functions to add functionality in Carousel Component.
-    function getSlidesToShow() {
-        if (viewportWidth >= 1024) return 3;
-        if (viewportWidth >= 768) return 2;
-        return 1;
+    //👇 Below are the variables & functions for Carousel Component
+    const carousel = {
+        track: document.querySelector('.carousel-track'),
+        slides: Array.from(document.querySelector('.carousel-track').children),
+        nextButton: document.querySelector('.carousel-button.next'),
+        prevButton: document.querySelector('.carousel-button.prev'),
+        currentSlide: 0,
+        visibleSlides: 1
+    }; 
+
+    function updateVisibleSlides() { // Update the number of visible slides based on screen width
+        const viewportWidth = window.innerWidth;
+        if (viewportWidth >= 1024) {
+            carousel.visibleSlides = 3;
+        } else if (viewportWidth >= 768) {
+            carousel.visibleSlides = 2;
+        } else {
+            carousel.visibleSlides = 1;
+        }
     }
 
-    function updateCarousel() {
-        const slideWidth = slides[0].getBoundingClientRect().width;
-        track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    function handleResize() { // Handle window resize
+        updateVisibleSlides();
+        setSlideWidth();
+        updateCarouselView();
+    }
+
+    function moveToPrevSlide() { // Move to the previous slide
+        if (carousel.currentSlide > 0) {
+            carousel.currentSlide -= carousel.visibleSlides;
+            updateCarouselView();
+        }
+    }
+
+    function moveToNextSlide() { // Move to the next slide
+        if (carousel.currentSlide < carousel.slides.length - carousel.visibleSlides) {
+            carousel.currentSlide += carousel.visibleSlides;
+            updateCarouselView();
+        }
+    }
+
+    function addEventListeners() { // Add event listeners
+        carousel.nextButton.addEventListener('click', moveToNextSlide);
+        carousel.prevButton.addEventListener('click', moveToPrevSlide);
+        window.addEventListener('resize', handleResize);
+    }
+
+    function updateButtonStates() { // Update button states
+        carousel.prevButton.disabled = carousel.currentSlide === 0;
+        carousel.nextButton.disabled = carousel.currentSlide >= carousel.slides.length - carousel.visibleSlides;
+    }
+
+    function updateCarouselView() { // Update the carousel view
+        const slideWidth = carousel.track.offsetWidth / carousel.visibleSlides;
+        carousel.track.style.transform = `translateX(-${carousel.currentSlide * slideWidth}px)`;
+        updateButtonStates();
+    }
+    
+    function setSlideWidth() { // Set the width of each slide
+        const slideWidth = carousel.track.offsetWidth / carousel.visibleSlides;
+        carousel.slides.forEach(slide => {
+            slide.style.width = `${slideWidth}px`;
+        });
+    }
+    
+    function initializeCarousel() { // Initialize the carousel
+        setSlideWidth();
+        updateCarouselView();
+        addEventListeners();
     }
 
     //👇 Below code to make the subtitle element responsive, while maintaining the animation.
-    if (viewportWidth <= 475) {
+    if (window.innerWidth <= 475) {
         subtitleFirstLine.textContent = `Dive into the intricate world of "Lore Olympus", where `;
         subtitleSecondLine.innerHTML = "ancient myths collide with modern story, exploring power, <br> love, trauma, and identity in captivating ways.";
     }
-    else if (viewportWidth > 475 && viewportWidth <= 610) {
+    else if (window.innerWidth > 475 && window.innerWidth <= 610) {
         subtitleFirstLine.textContent = `Dive into the intricate world of "Lore Olympus", where ancient myths`;
         subtitleSecondLine.innerHTML = "collide with modern story, exploring power, love, trauma, and identity <br> in captivating ways.";
     }
@@ -51,22 +99,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
     addAnimation(subtitleSecondLine, 2600, "animate-subtitle");
     addAnimation(image, 3000, "animate-image");
 
-    //👇 Event listeners for the Buttons of the Carousel Component
-    nextButton.addEventListener('click', () => {
-        currentIndex = (currentIndex + slidesToShow) % slides.length;
-        updateCarousel();
-    });
 
-    prevButton.addEventListener('click', () => {
-        currentIndex = (currentIndex - slidesToShow + slides.length) % slides.length;
-        updateCarousel();
-    });
-
-    window.addEventListener('resize', () => {
-        slidesToShow = getSlidesToShow();
-        updateCarousel();
-    });
-
-    //👇 Initialize  Carousel Component
-    updateCarousel();
+    // Initialize the carousel
+    updateVisibleSlides();
+    initializeCarousel();
 });
